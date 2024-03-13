@@ -1,0 +1,10 @@
+package edu.kh.jdbc1.model.vo;
+
+public class EmpP { // 연습용
+	private String empName;
+	private String empNo;
+	private String deptTitle;
+	private String jobName;
+	
+	
+}

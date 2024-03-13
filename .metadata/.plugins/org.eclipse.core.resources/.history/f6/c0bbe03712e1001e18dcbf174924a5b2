@@ -1,0 +1,59 @@
+package edu.kh.jdbc1.model.vo;
+
+public class EmpP { // 연습용
+	private String empName;
+	private String empNo;
+	private String deptTitle;
+	private String jobName;
+	
+	public EmpP() {}
+
+	public EmpP(String empName, String empNo, String deptTitle, String jobName) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.deptTitle = deptTitle;
+		this.jobName = jobName;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	public String getEmpNo() {
+		return empNo;
+	}
+
+	public void setEmpNo(String empNo) {
+		this.empNo = empNo;
+	}
+
+	public String getDeptTitle() {
+		return deptTitle;
+	}
+
+	public void setDeptTitle(String deptTitle) {
+		this.deptTitle = deptTitle;
+	}
+
+	public String getJobName() {
+		return jobName;
+	}
+
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
+	}
+
+	@Override
+	public String toString() {
+		return "EmpP [empName=" + empName + ", empNo=" + empNo + ", deptTitle=" + deptTitle + ", jobName=" + jobName
+				+ "]";
+	}
+	
+		
+	
+}

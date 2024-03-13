@@ -1,0 +1,10 @@
+package edu.kh.jdbc1.model.vo;
+
+public class Employee {
+	
+	private String empName;
+	private String jobName;
+	private int salary;
+	private int annualIncome;
+	
+}

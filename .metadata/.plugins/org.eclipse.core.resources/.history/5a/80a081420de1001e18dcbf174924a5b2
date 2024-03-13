@@ -1,0 +1,82 @@
+package edu.kh.jdbc1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import edu.kh.jdbc1.model.vo.EmpP;
+
+public class JDBCPractice {
+	
+	public static void main(String[] args) {
+		
+		// 주민번호 입력 받아 N0년대의 같은 성별인 , 
+		// 직원들의 사원명, 주민번호, 부서명, 직급명을 조회하시오.
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		// JDBC 객체 생성
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			System.out.print("주민번호 입력 'YYMMDD-*******' : ");
+			String input = sc.next();
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:XE";
+			String user = "kh_ssm";
+			String pw = "kh1234";
+			
+			conn = DriverManager.getConnection(url, user, pw);
+			
+			// SQL 구문
+			String sql = "SELECT "
+					+ "    EMP_NAME 사원명,"
+					+ "    EMP_NO 주민번호,"
+					+ "    DEPT_TITLE 부서명,"
+					+ "    JOB_NAME 직급명"
+					+ "FROM EMPLOYEE"
+					+ "JOIN JOB USING(JOB_CODE)"
+					+ "JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)"
+					+ "WHERE SUBSTR(EMP_NO, 1, 1) = '" + input + "'"
+					+ "AND SUBSTR(EMP_NO, 8, 1) = '" + input + "'";
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			List<EmpP> list = new ArrayList<EmpP>();
+			
+			while(rs.next()) {
+				
+				// 컬럼에서 값 얻어오기
+				String empName = rs.getString("사원명");
+				String empNo = rs.getString("주민번호");
+				String deptTitle = rs.getString("부서명");
+				String jobName = rs.getString("직급명")ㅣ
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				if(rs!=null) rs.close();
+				if(stmt!=null) stmt.close();
+				if(conn!=null) conn.close();
+				sc.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+}

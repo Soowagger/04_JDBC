@@ -1,0 +1,40 @@
+package edu.kh.jdbc1;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class JDBCPractice {
+	
+	public static void main(String[] args) {
+		
+		// 주민번호가 70년대 생이면서 성별이 여자이고, 직원들의
+		// 사원명, 주민번호, 부서명, 직급명을 조회하시오.
+		
+		Scanner sc = new Scanner(System.in);
+		
+		// JDBC 객체 생성
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				if(rs!=null) rs.close();
+				if(stmt!=null) stmt.close();
+				if(conn!=null) conn.close();
+				sc.close();
+			} catch (Exception e) {
+				
+			}
+			
+		}
+		
+	}
+}
