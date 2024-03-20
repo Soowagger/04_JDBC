@@ -19,7 +19,6 @@
 		MEMBER_NM = ?,
 		MEMBER_GENDER = ?
 		WHERE MEMBER_NO = ?
-		
 	</entry>
 	
 	<!-- 비밀번호 변경 -->
